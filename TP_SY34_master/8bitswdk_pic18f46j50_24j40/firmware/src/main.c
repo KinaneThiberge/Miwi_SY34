@@ -254,7 +254,9 @@ void RX(void){
  * Gestion des messages sortants
  */
 
-
+/**
+ * Transmission d'un buffer via broadcast
+ */
 void BroadCast_Tx(void){
  
     char counterChar[32];
@@ -273,6 +275,10 @@ void BroadCast_Tx(void){
     MiApp_BroadcastPacket(false);
    
 }
+
+/**
+ * Transmission d'un buffer via unicast
+ */
 void UniCast_Tx(void){
     static int counter = 1;
     static int Rb0_button = 1;
@@ -354,6 +360,10 @@ void UniCast_Tx(void){
     }
 }
 
+/**
+ * Methodede Transmission des données : brodcast pour envoyer un message a tout
+ * le monde, puis unicast via RB0 ou RB2
+ */
 int flag=0;
 void TX(void){
     if(flag==0){
